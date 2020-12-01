@@ -8,7 +8,7 @@ export default function Header(
     }>
 ) {
     return (
-        <header className='text-xl p-3 px-5'>
+        <header className='block text-xl p-3 px-5 flex-grow-0 flex-shrink-0'>
             <Head>
                 {props.path_name ? (
                     <title>Nychat - {props.path_name}</title>

@@ -7,9 +7,9 @@ export default function DefaultLayout(
     }>
 ) {
     return (
-        <div className='w-screen h-screen dark:bg-gray-900 dark:text-white'>
+        <div className='w-screen min-h-screen dark:bg-gray-800 dark:text-white flex flex-col'>
             <Header path_name={props.path_name} />
-            <div>{props.children}</div>
+            <div className='flex-grow flex'>{props.children}</div>
         </div>
     )
 }
