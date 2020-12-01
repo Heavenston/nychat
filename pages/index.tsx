@@ -5,7 +5,7 @@ import CreateChatForm from '../components/createChatForm'
 export default function Home() {
   return (
     <DefaultLayout>
-      <div className='flex-grow flex flex-wrap gap-8 justify-center items-center'>
+      <div className='flex-grow flex-shrink flex flex-wrap gap-8 justify-center content-center items-center'>
         <JoinChatForm />
         <CreateChatForm />
       </div>

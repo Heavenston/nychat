@@ -9,6 +9,9 @@ module.exports = {
         gray: colors.trueGray,
       },
       minWidth: theme => theme('spacing'),
+      maxWidth: {
+        screen: '100vw',
+      },
     },
   },
   variants: {

@@ -1,13 +1,13 @@
 export default function CreateChatForm() {
   return (
-    <form className='block min-w-80 px-10 p-8 rounded-md shadow-lg bg-gray-100 dark:bg-gray-900'>
+    <form className='max-w-screen flex-grow-0 block min-w-80 px-10 p-8 rounded-md shadow-lg bg-gray-100 dark:bg-gray-900'>
       <h3 className='mb-5 text-lg font-semibold border-black dark:border-white border-solid border-b-2'>
         Create a chat
       </h3>
       <label className='flex items-center mb-3'>
-        <span className='mr-3'>Chat Name</span>
+        <span className='mr-3 whitespace-nowrap'>Chat Name</span>
         <input
-          className='form-input flex-grow mt-1 bg-white dark:bg-gray-800 rounded-lg'
+          className='min-w-0 form-input flex-shrink flex-grow mt-1 bg-white dark:bg-gray-800 rounded-lg'
           placeholder='A cool name'
         />
       </label>
