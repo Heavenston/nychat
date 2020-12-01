@@ -11,9 +11,12 @@
     "dependencies": {
         "next": "10.0.3",
         "react": "17.0.1",
-        "react-dom": "17.0.1"
+        "react-dom": "17.0.1",
+        "use-dark-mode": "^2.3.1"
     },
     "devDependencies": {
+        "@mdi/js": "^5.8.55",
+        "@mdi/react": "^1.4.0",
         "@tailwindcss/custom-forms": "^0.2.1",
         "@types/node": "^14.14.10",
         "@types/react": "^17.0.0",
