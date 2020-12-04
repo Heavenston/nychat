@@ -8,7 +8,7 @@ export default function Chat() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (router.query !== {}) {
+    if (typeof router.query.id === 'string') {
       const abortController = new AbortController()
       const secret = router.query.id
       if (typeof secret !== 'string') throw 'wtf'
@@ -21,7 +21,7 @@ export default function Chat() {
             const user = await r.json()
             localStorage.setItem('user', JSON.stringify(user))
             localStorage.setItem('secret', secret)
-            localStorage.router.push('/chat')
+            router.push('/chat')
           } else {
             setIsLoading(false)
           }
