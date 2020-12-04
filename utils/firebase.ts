@@ -1,14 +1,9 @@
 import * as admin from 'firebase-admin'
 import type { Chat, Message, User } from '~/utils/dbTypes'
 
-const fromB64 = (t: string) => Buffer.from(t, 'base64').toString()
-
 !admin.apps.length
   ? admin.initializeApp({
-      credential: admin.credential.cert(
-        JSON.parse(fromB64(process.env.FIREBASE_CREDS as string))
-      ),
-      databaseURL: 'https://nychat-7f56f.firebaseio.com',
+      credential: admin.credential.applicationDefault(),
     })
   : admin.app()
 
