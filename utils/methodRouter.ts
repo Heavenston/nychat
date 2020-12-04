@@ -5,7 +5,7 @@ type Routes = {
   [methodName: string]: Route
 }
 
-export async function MethodRouter(routes: Routes): Promise<Route> {
+export function MethodRouter(routes: Routes): Route {
   return async (req, res) => {
     const route = routes[req.method || ''] as Route | undefined
     if (route) {
