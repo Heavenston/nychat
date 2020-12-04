@@ -28,8 +28,6 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /opt/app
-            . ~/.bashrc
-            nvm use node
             yarn
             yarn build
             pkill screen
