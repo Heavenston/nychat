@@ -1,7 +1,9 @@
 import * as admin from 'firebase-admin'
 import type { Chat, Message, User } from '~/utils/dbTypes'
 
-!admin.apps.length ? admin.initializeApp() : admin.app()
+!admin.apps.length
+  ? admin.initializeApp(JSON.parse(process.env.GCLOUD_CREDENTIALS || ''))
+  : admin.app()
 
 export const firestore = admin.firestore()
 
