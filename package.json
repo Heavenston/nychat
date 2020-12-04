@@ -9,6 +9,7 @@
         "deploy": "gcloud app deploy --version main"
     },
     "dependencies": {
+        "event-source-polyfill": "^1.0.21",
         "firebase-admin": "^9.4.1",
         "next": "10.0.3",
         "react": "17.0.1",
