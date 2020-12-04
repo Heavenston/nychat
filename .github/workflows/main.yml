@@ -29,6 +29,7 @@ jobs:
           script: |
             cd /opt/app
             . ~/.bashrc
+            nvm use node
             yarn
             yarn build
             pkill screen
