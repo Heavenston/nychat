@@ -28,6 +28,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /opt/app
+            nvm use node
             yarn
             yarn build
             pkill screen
