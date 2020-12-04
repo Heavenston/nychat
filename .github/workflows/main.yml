@@ -21,6 +21,7 @@ jobs:
       - name: Executing remote command to build and start the app
         uses: appleboy/ssh-action@master
         with:
+          script_stop: true
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
