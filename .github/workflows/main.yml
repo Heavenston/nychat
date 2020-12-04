@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: Copy file via scp
+      - name: Copy file via scp to prod server
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -18,7 +18,7 @@ jobs:
           source: '.'
           target: '/opt/app'
 
-      - name: Executing remote command
+      - name: Executing remote command to build and start the app
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
