@@ -28,6 +28,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd /opt/app
+            mkdir /opt/ITWORKS
             sh -c yarn
             sh -c yarn build
             pkill screen
