@@ -5,8 +5,7 @@
     "scripts": {
         "dev": "next dev -p 1234",
         "build": "next build",
-        "start": "next start -p 8080",
-        "deploy": "gcloud app deploy --version main"
+        "start": "next start -p 8080"
     },
     "dependencies": {
         "event-source-polyfill": "^1.0.21",

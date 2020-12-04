@@ -63,7 +63,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     cancelTwo()
   }
 
-  await new Promise((resolve, reject) => {
+  await new Promise<void>((resolve, reject) => {
     req.on('close', () => {
       res.end()
       cancel()
