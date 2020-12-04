@@ -5,7 +5,9 @@ const fromB64 = (t: string) => Buffer.from(t, 'base64').toString()
 
 !admin.apps.length
   ? admin.initializeApp({
-      credential: JSON.parse(fromB64(process.env.FIREBASE_CREDS as string)),
+      credential: admin.credential.cert(
+        JSON.parse(fromB64(process.env.FIREBASE_CREDS as string))
+      ),
       databaseURL: 'https://nychat-7f56f.firebaseio.com',
     })
   : admin.app()
