@@ -27,9 +27,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            alias yarn="~/.yarn/bin/yarn.js"
             cd /opt/app
-            yarn
-            yarn build
+            sh -c yarn
+            sh -c yarn build
             pkill screen
             screen -d -m -S test yarn start
