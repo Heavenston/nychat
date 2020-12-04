@@ -12,6 +12,9 @@ module.exports = {
       maxWidth: {
         screen: '100vw',
       },
+      lineHeight: {
+        full: '100%',
+      },
     },
   },
   variants: {
