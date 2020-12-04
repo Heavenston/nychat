@@ -11,7 +11,7 @@ const DELETE = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const user = await authRequest(req, res)
+  const user = await authRequest(res, req.headers.authorization)
   if (!user) return
   const userData = user.data()
   if (userData === undefined) throw ''

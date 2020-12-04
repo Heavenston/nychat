@@ -3,11 +3,10 @@ import type { Chat, Message, User } from '~/utils/dbTypes'
 import { usersCollection } from '~/utils/firebase'
 
 export async function authRequest(
-  req: NextApiRequest,
   res: NextApiResponse,
+  secret: any,
   requireAdmin: boolean = false
 ): Promise<FirebaseFirestore.DocumentSnapshot<User> | false> {
-  const secret = req.headers.authorization
   if (typeof secret !== 'string') {
     res.status(400).end()
     return false

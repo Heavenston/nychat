@@ -16,7 +16,7 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const user = await authRequest(req, res, true)
+  const user = await authRequest(res, req.headers.authorization, true)
   if (!user) return
   const userData = user.data()
   if (userData === undefined) throw ''
