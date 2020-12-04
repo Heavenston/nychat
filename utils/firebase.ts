@@ -1,5 +1,5 @@
 import * as admin from 'firebase-admin'
-import type { Chat, Message, User } from '../dbTypes'
+import type { Chat, Message, User } from '~/utils/dbTypes'
 
 !admin.apps.length
   ? admin.initializeApp({

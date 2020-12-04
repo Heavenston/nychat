@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import type { Chat, Message, User } from '../dbTypes'
-import { usersCollection } from './firebase'
+import type { Chat, Message, User } from '~/utils/dbTypes'
+import { usersCollection } from '~/utils/firebase'
 
 export async function authRequest(
   req: NextApiRequest,

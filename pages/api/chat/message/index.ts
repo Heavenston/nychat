@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { authRequest } from '../../../../utils/userUpdate'
-import { generateId } from '../../../../utils/idGenerator'
-import { Message } from '../../../../dbTypes'
-import { MethodRouter } from '../../../../utils/methodRouter'
+import { authRequest } from '~/utils/userUpdate'
+import { generateId } from '~/utils/idGenerator'
+import { Message } from '~/utils/dbTypes'
+import { MethodRouter } from '~/utils/methodRouter'
 
 const POST = async (req: NextApiRequest, res: NextApiResponse) => {
   if (typeof req.body !== 'object') {

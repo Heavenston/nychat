@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { chatsCollection, usersCollection } from '../../../utils/firebase'
-import { generateId } from '../../../utils/idGenerator'
+import { chatsCollection, usersCollection } from '~/utils/firebase'
+import { generateId } from '~/utils/idGenerator'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') return

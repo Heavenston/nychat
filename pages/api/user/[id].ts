@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { usersCollection } from '../../../utils/firebase'
-import { updateUser } from '../../../utils/userUpdate'
-import { MethodRouter } from '../../../utils/methodRouter'
+import { usersCollection } from '~/utils/firebase'
+import { updateUser } from '~/utils/userUpdate'
+import { MethodRouter } from '~/utils/methodRouter'
 
 // Get a user and it's chat
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {

@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { authRequest } from '../../../../utils/userUpdate'
-import { generateId } from '../../../../utils/idGenerator'
-import { Message } from '../../../../dbTypes'
-import { MethodRouter } from '../../../../utils/methodRouter'
+import { authRequest } from '~/utils/userUpdate'
+import { generateId } from '~/utils/idGenerator'
+import { Message } from '~/utils/dbTypes'
+import { MethodRouter } from '~/utils/methodRouter'
 
 const DELETE = async (req: NextApiRequest, res: NextApiResponse) => {
   const messageId = req.query.id

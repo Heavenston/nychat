@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { MethodRouter } from '../../../utils/methodRouter'
-import { authRequest } from '../../../utils/userUpdate'
+import { MethodRouter } from '~/utils/methodRouter'
+import { authRequest } from '~/utils/userUpdate'
 
 const POST = async (req: NextApiRequest, res: NextApiResponse) => {
   const body = req.body
