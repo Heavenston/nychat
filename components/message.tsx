@@ -11,7 +11,6 @@ export default function Message(
 ) {
   const wasToday = useMemo(() => {
     const now = new Date()
-    now.setDate(4)
 
     return (
       props.sentDate.getDate() === now.getDate() &&

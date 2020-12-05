@@ -50,7 +50,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const cancelOne = messagesCollection
     .orderBy('date')
     .endBefore(firestore.Timestamp.now())
-    .limitToLast(10)
+    .limitToLast(20)
     .onSnapshot(onChange)
 
   const cancelTwo = messagesCollection
