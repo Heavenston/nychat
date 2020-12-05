@@ -49,9 +49,9 @@ const POST = async (req: NextApiRequest, res: NextApiResponse) => {
   })
 
   res.status(200).json({
-    id: user.id,
-    name: userData.name,
-    admin: userData.admin ?? false,
+    id: newUserId,
+    name: username,
+    admin,
   })
 }
 
