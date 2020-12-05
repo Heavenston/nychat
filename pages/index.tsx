@@ -1,11 +1,15 @@
 import { useRouter } from 'next/router'
 import { FormEvent, useState } from 'react'
 import DefaultLayout from '~/layouts/default'
+import Link from 'next/link'
+import { useLocalStorage } from '~/utils/useLocalStorage'
 
 export default function Home() {
   const router = useRouter()
   const [chatName, setChatName] = useState('')
   const [loading, setLoading] = useState(false)
+  const [lsSecret, setLsSecret] = useLocalStorage('secret')
+  const [lsUser, setLsUser] = useLocalStorage('secret')
 
   const onFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     ;(async () => {
@@ -29,8 +33,8 @@ export default function Home() {
         return
       }
       const { user, userSecret } = await r.json()
-      localStorage.setItem('user', JSON.stringify(user))
-      localStorage.setItem('secret', userSecret)
+      setLsUser(JSON.stringify(user))
+      setLsSecret(userSecret)
       router.push('/chat')
     })()
   }
@@ -59,6 +63,28 @@ export default function Home() {
             Create
           </button>
         </form>
+        {lsSecret !== null && (
+          <div className='max-w-screen flex-grow-0 block min-w-80 px-10 p-8 rounded-md shadow-lg bg-gray-100 dark:bg-gray-900'>
+            <div className='mb-3'>You are currently in a chat !</div>
+            <div className='flex gap-2 flex-wrap items-center'>
+              <Link href='/chat'>
+                <button className='p-1 px-3 bg-green-400 dark:bg-green-600 rounded'>
+                  Go back to it
+                </button>
+              </Link>
+              <span>Or</span>
+              <button
+                onClick={() => {
+                  setLsSecret(null)
+                  setLsUser(null)
+                }}
+                className='p-1 px-3 bg-red-400 dark:bg-red-600 rounded'
+              >
+                Forget
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </DefaultLayout>
   )
