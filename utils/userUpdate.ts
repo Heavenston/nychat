@@ -79,7 +79,10 @@ export async function updateUser(
   const targetUserRef = usersCollection.doc(targetId)
   const targetUser = await targetUserRef.get()
 
-  if (!targetUser.exists || targetUser.get('chat') !== adminUser.get('chat')) {
+  if (
+    !targetUser.exists ||
+    targetUser.get('chat').id !== adminUser.get('chat').id
+  ) {
     res.status(404).json({
       message: `Target user does not exist`,
     })
