@@ -13,23 +13,42 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const adminUserId = generateId()
   const adminUserSecret = generateId(6)
 
-  const adminUser = await usersCollection.add({
+  const adminUserRef = usersCollection.doc(adminUserId)
+  adminUserRef.create({
     name: 'User #1',
     secret: adminUserSecret,
     admin: true,
     chat: chatsCollection.doc(chatId),
     date: FirebaseFirestore.Timestamp.now(),
   })
-  const chat = chatsCollection.doc(chatId)
-  chat.create({
+  const adminUser = await adminUserRef.get()
+  const adminUserData = adminUser.data()
+  if (adminUserData === undefined) throw ''
+  const chatRef = chatsCollection.doc(chatId)
+  await chatRef.create({
     name,
-    users: [adminUser],
+    users: [adminUserRef],
     date: FirebaseFirestore.Timestamp.now(),
   })
+  const chat = await chatRef.get()
+  const chatData = chat.data()
+  if (chatData === undefined) throw ''
 
   res.status(200).json({
-    userId: adminUserId,
+    user: {
+      id: adminUserRef.id.toString(),
+      name: adminUserData.name,
+      admin: adminUserData.admin ?? false,
+    },
+    chat: {
+      id: chatRef.id,
+      name: chatData.name,
+      users: (await Promise.all(chatData.users.map(u => u.get()))).map(u => ({
+        id: u.id,
+        name: u.data()?.name,
+        admin: u.data()?.admin ?? false,
+      })),
+    },
     userSecret: adminUserSecret,
-    chatId,
   })
 }
