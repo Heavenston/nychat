@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { usersCollection } from '~/utils/firebase'
 import { authRequest, updateUser } from '~/utils/userUpdate'
 import { MethodRouter } from '~/utils/methodRouter'
+import { firestore } from 'firebase-admin'
 
 // Get a user and it's chat
 const GET = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -66,7 +67,12 @@ const DELETE = async (req: NextApiRequest, res: NextApiResponse) => {
   const updateUserResult = await updateUser(req, res, true, true)
   if (!updateUserResult) return
   const { targetUser } = updateUserResult
+
+  const chatRef = (await targetUser.ref.get()).data()?.chat
   await targetUser.ref.delete()
+  await chatRef?.update({
+    users: firestore.FieldValue.arrayRemove(targetUser.ref),
+  })
   res.status(200).end()
 }
 
