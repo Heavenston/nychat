@@ -16,7 +16,7 @@ export async function authRequest(
     .where('secret', '==', secret)
     .limit(1)
     .get()
-  if (userQuery.empty || userQuery.docs[0].data()?.admin === false) {
+  if (userQuery.empty) {
     res.status(401).json({
       message: 'Unauthorized',
     })
