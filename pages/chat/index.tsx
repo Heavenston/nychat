@@ -76,7 +76,7 @@ export default function ChatIndex() {
           messages[data.id] = {
             author: data.author,
             content: data.content,
-            date: new Date(),
+            date: new Date(data.date),
           }
           setMessagesChanged(Date.now())
         } else if (data.type === 'messageDelete') {
@@ -132,6 +132,7 @@ export default function ChatIndex() {
                 .map(([id, m]) => (
                   <Message
                     key={id}
+                    sentDate={m.date}
                     authorName={
                       currentUser?.chat.users.find(u => u.id === m.author)
                         ?.name || 'ERROR'
