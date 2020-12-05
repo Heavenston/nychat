@@ -26,6 +26,7 @@ const GET = async (req: NextApiRequest, res: NextApiResponse) => {
       id: targetUser.id,
       name: userData.name,
       admin: userData.admin ?? false,
+      secret: userData.secret,
       chat: {
         id: chat.id,
         name: chatData.name,
@@ -50,6 +51,7 @@ const GET = async (req: NextApiRequest, res: NextApiResponse) => {
       id: user.id,
       name: userData.name,
       admin: userData.admin ?? false,
+      secret: userData.secret,
       chat: {
         id: chat.id,
         name: chatData.name,
