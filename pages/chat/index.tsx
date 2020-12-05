@@ -119,11 +119,7 @@ export default function ChatIndex() {
   }
 
   return (
-    <DefaultLayout
-      path_name={`${currentUser?.chat.name || ''} - ${
-        currentUser?.chat.users.length || 0
-      } Members`}
-    >
+    <DefaultLayout path_name={`${currentUser?.chat.name || ''}`}>
       <div className='flex justify-center items-center flex-grow p-2 md:p-8 xl:px-64'>
         <div className='w-full h-full bg-gray-200 shadow dark:bg-gray-700 rounded overflow-hidden flex flex-col p-3 gap-3'>
           <div
