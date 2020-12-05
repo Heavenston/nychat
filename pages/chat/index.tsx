@@ -137,10 +137,9 @@ export default function ChatIndex() {
                       currentUser?.chat.users.find(u => u.id === m.author)
                         ?.name || 'ERROR'
                     }
+                    content={m.content}
                     className='mb-2'
-                  >
-                    {m.content}
-                  </Message>
+                  />
                 ))}
             </div>
           </div>

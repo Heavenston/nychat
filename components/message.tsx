@@ -1,9 +1,11 @@
-import { PropsWithChildren, useMemo } from 'react'
+import { PropsWithoutRef, useMemo, ReactElement } from 'react'
+import { toHTML } from 'discord-markdown'
 
 export default function Message(
-  props: PropsWithChildren<{
+  props: PropsWithoutRef<{
     authorName: string
     sentDate: Date
+    content: string
     className?: string
   }>
 ) {
@@ -28,7 +30,12 @@ export default function Message(
             : props.sentDate.toLocaleDateString()}
         </span>
       </div>
-      <div className='dark:text-gray-300'>{props.children}</div>
+      <div
+        className='dark:text-gray-300'
+        dangerouslySetInnerHTML={{
+          __html: toHTML(props.content),
+        }}
+      />
     </div>
   )
 }

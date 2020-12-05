@@ -8,6 +8,7 @@
         "start": "next start -p 80"
     },
     "dependencies": {
+        "discord-markdown": "^2.4.1",
         "event-source-polyfill": "^1.0.21",
         "firebase-admin": "^9.4.1",
         "next": "10.0.3",
